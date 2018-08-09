@@ -9,9 +9,7 @@
 		}
 	],
 	"require": {
-		"php": "7.1.*|7.2.*",
-		"nette/di": "2.3.*|2.4.*",
-		"nette/application": "2.3.*|2.4.*"
+		"php": "7.1.*|7.2.*"
 	},
 	"require-dev": {
 		"nette/tester": "2.0.*",
