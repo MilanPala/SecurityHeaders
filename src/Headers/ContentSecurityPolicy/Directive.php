@@ -62,7 +62,6 @@ final class Directive
 
 	public function addHttps(): void
 	{
-		$this->values = [];
 		$this->values[] = new Https();
 	}
 
