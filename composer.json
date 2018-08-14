@@ -23,7 +23,7 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"PdTests\\SecurityHeaders\\": "tests"
+			"PdTests\\SecurityHeaders\\Headers\\": "tests"
 		}
 	}
 

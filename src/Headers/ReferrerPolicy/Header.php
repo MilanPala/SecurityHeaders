@@ -21,7 +21,7 @@ final class Header implements \Pd\SecurityHeaders\Headers\IHeader
 
 	public function __construct(string $value)
 	{
-		if ( ! \in_array($value, self::VALUES)) {
+		if ( ! \in_array($value, self::VALUES, TRUE)) {
 			throw new \InvalidArgumentException(\sprintf('Hodnota "%s" není mezi povolenými: %s', $value, \implode(', ', self::VALUES)));
 		}
 

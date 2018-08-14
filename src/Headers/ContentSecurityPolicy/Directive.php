@@ -10,22 +10,27 @@ final class Directive
 	 */
 	private $values = [];
 
+	/**
+	 * @var bool
+	 */
+	private $hasNone = FALSE;
+
 
 	public function addNonce(string $nonce): void
 	{
-		$this->values[] = new Nonce($nonce);
+		$this->addToValues(new Nonce($nonce));
 	}
 
 
 	public function addSelf(): void
 	{
-		$this->values[] = new SelfValue();
+		$this->addToValues(new SelfValue());
 	}
 
 
 	public function addWildcard(): void
 	{
-		$this->values[] = new Wildcard();
+		$this->addToValues(new Wildcard());
 	}
 
 
@@ -37,32 +42,46 @@ final class Directive
 
 	public function addData(): void
 	{
-		$this->values[] = new Data();
+		$this->addToValues(new Data());
 	}
 
 
 	public function addUnsafeEval(): void
 	{
-		$this->values[] = new UnsafeEval();
+		$this->addToValues(new UnsafeEval());
 	}
 
 
 	public function addUnsafeInline(): void
 	{
-		$this->values[] = new UnsafeInline();
+		$this->addToValues(new UnsafeInline());
 	}
 
 
 	public function addNone(): void
 	{
-		$this->values = [];
-		$this->values[] = new None();
+		$this->addToValues(new None());
 	}
 
 
 	public function addHttps(): void
 	{
-		$this->values[] = new Https();
+		$this->addToValues(new Https());
+	}
+
+
+	private function addToValues(IValue $value): void
+	{
+		if ($this->hasNone) {
+			throw new \InvalidArgumentException(\sprintf('Hodnota "%s" je už nastavená', (string) (new None())));
+		}
+
+		if ($value instanceof None) {
+			$this->hasNone = TRUE;
+			$this->values = [];
+		}
+
+		$this->values[] = $value;
 	}
 
 

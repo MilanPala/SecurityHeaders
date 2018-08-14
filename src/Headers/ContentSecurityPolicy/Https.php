@@ -7,7 +7,7 @@ final class Https implements IValue
 
 	public function __toString(): string
 	{
-		return "https:";
+		return 'https:';
 	}
 
 }
