@@ -98,7 +98,7 @@ final class Directive
 	}
 
 
-	public function addUnsafeInline(): void
+	public function setUnsafeInline(): void
 	{
 		if ($this->hasUnsafeInline) {
 			return;
