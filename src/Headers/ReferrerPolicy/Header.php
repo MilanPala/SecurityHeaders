@@ -7,10 +7,12 @@ final class Header implements \Pd\SecurityHeaders\Headers\IHeader
 
 	public const UNSAFE_URL = 'unsafe-url';
 	public const NO_REFERRER = 'no-referrer';
+	public const NO_REFERRER_WHEN_DOWNGRADE = 'no-referrer-when-downgrade';
 
 	private const VALUES = [
 		self::NO_REFERRER,
 		self::UNSAFE_URL,
+		self::NO_REFERRER_WHEN_DOWNGRADE,
 	];
 
 	/**
