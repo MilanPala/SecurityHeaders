@@ -13,8 +13,8 @@ final class Nonce implements IValue
 
 	public function __construct(string $nonce)
 	{
-		if ( ! \preg_match('~^[a-zA-Z0-9+/]+$~', $nonce)) {
-			throw new \InvalidArgumentException('Nonce musí obsahovat písmena, číslice, + a /');
+		if ( ! \preg_match('~^[a-zA-Z0-9\+/\-_]+={0,2}$~', $nonce)) {
+			throw new \InvalidArgumentException('Nonce musí obsahovat písmena, číslice, +, /, -, _ a =');
 		}
 
 		$this->nonce = $nonce;

@@ -15,6 +15,36 @@ final class Directive
 	 */
 	private $hasNone = FALSE;
 
+	/**
+	 * @var bool
+	 */
+	private $hasSelf = FALSE;
+
+	/**
+	 * @var bool
+	 */
+	private $hasWildcard = FALSE;
+
+	/**
+	 * @var bool
+	 */
+	private $hasData = FALSE;
+
+	/**
+	 * @var bool
+	 */
+	private $hasUnsafeEval = FALSE;
+
+	/**
+	 * @var bool
+	 */
+	private $hasUnsafeInline = FALSE;
+
+	/**
+	 * @var bool
+	 */
+	private $hasHttps = FALSE;
+
 
 	public function addNonce(string $nonce): void
 	{
@@ -22,15 +52,23 @@ final class Directive
 	}
 
 
-	public function addSelf(): void
+	public function setSelf(): void
 	{
+		if ($this->hasSelf) {
+			return;
+		}
 		$this->addToValues(new SelfValue());
+		$this->hasSelf = TRUE;
 	}
 
 
-	public function addWildcard(): void
+	public function setWildcard(): void
 	{
+		if ($this->hasWildcard) {
+			return;
+		}
 		$this->addToValues(new Wildcard());
+		$this->hasWildcard = TRUE;
 	}
 
 
@@ -40,33 +78,49 @@ final class Directive
 	}
 
 
-	public function addData(): void
+	public function setData(): void
 	{
+		if ($this->hasData) {
+			return;
+		}
 		$this->addToValues(new Data());
+		$this->hasData = TRUE;
 	}
 
 
-	public function addUnsafeEval(): void
+	public function setUnsafeEval(): void
 	{
+		if ($this->hasUnsafeEval) {
+			return;
+		}
 		$this->addToValues(new UnsafeEval());
+		$this->hasUnsafeEval = TRUE;
 	}
 
 
 	public function addUnsafeInline(): void
 	{
+		if ($this->hasUnsafeInline) {
+			return;
+		}
 		$this->addToValues(new UnsafeInline());
+		$this->hasUnsafeInline = TRUE;
 	}
 
 
-	public function addNone(): void
+	public function setNone(): void
 	{
 		$this->addToValues(new None());
 	}
 
 
-	public function addHttps(): void
+	public function setHttps(): void
 	{
+		if ($this->hasHttps) {
+			return;
+		}
 		$this->addToValues(new Https());
+		$this->hasHttps = TRUE;
 	}
 
 

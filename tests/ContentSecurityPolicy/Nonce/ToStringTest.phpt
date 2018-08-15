@@ -9,9 +9,9 @@ final class ToStringTest extends \Tester\TestCase
 
 	public function testRightInput(): void
 	{
-		$nonce = new \Pd\SecurityHeaders\Headers\ContentSecurityPolicy\Nonce('123456789');
+		$nonce = new \Pd\SecurityHeaders\Headers\ContentSecurityPolicy\Nonce('123456789asfdfASDF+/');
 
-		\Tester\Assert::equal("nonce-123456789", (string) $nonce);
+		\Tester\Assert::equal("nonce-123456789asfdfASDF+/", (string) $nonce);
 	}
 
 
