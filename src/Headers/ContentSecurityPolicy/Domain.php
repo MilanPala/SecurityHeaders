@@ -20,7 +20,7 @@ final class Domain implements IValue
 		}
 
 		if ( ! \Nette\Utils\Validators::isUrl('http://' . $domainForCheck)) {
-			throw new \InvalidArgumentException(sprintf('Předaná doména "%s" není validní doéna', $domain));
+			throw new \InvalidArgumentException(\sprintf('Předaná doména "%s" není validní doéna', $domain));
 		}
 
 		$this->domain = $domain;
