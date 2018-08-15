@@ -20,6 +20,11 @@ final class Header implements \Pd\SecurityHeaders\Headers\IHeader
 	 */
 	private $blockAllMixedContent;
 
+	/**
+	 * @var bool
+	 */
+	private $upgradeInsecureRequests;
+
 
 	public function getName(): string
 	{
@@ -29,13 +34,25 @@ final class Header implements \Pd\SecurityHeaders\Headers\IHeader
 
 	public function getValue(): string
 	{
-		$directives[] = $this->defaultSrc ? ('default-src ' . $this->defaultSrc) : '';
+		$directives = [];
+
+		if ($this->defaultSrc) {
+			$directives[] = 'default-src ' . $this->defaultSrc;
+		}
 
 		foreach ($this->directives as $directiveName => $directiveValues) {
 			$directives[] = $directiveName . ' ' . $directiveValues;
 		}
 
-		return \implode('; ', $directives) . ($this->blockAllMixedContent ? '; block-all-mixed-content' : '');
+		if ($this->blockAllMixedContent) {
+			$directives[] = 'block-all-mixed-content';
+		}
+
+		if ($this->upgradeInsecureRequests) {
+			$directives[] = 'upgrade-insecure-requests';
+		}
+
+		return \implode('; ', $directives);
 	}
 
 
@@ -78,6 +95,12 @@ final class Header implements \Pd\SecurityHeaders\Headers\IHeader
 	public function setBlockAllMixedContent(): void
 	{
 		$this->blockAllMixedContent = TRUE;
+	}
+
+
+	public function setUpgradeInsecureRequests(): void
+	{
+		$this->upgradeInsecureRequests = TRUE;
 	}
 
 }
