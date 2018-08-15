@@ -13,6 +13,16 @@ final class Domain implements IValue
 
 	public function __construct(string $domain)
 	{
+		$domainForCheck = $domain;
+
+		if (\strpos($domain, '*.') === 0) {
+			$domainForCheck = \substr($domainForCheck, 2);
+		}
+
+		if ( ! \Nette\Utils\Validators::isUrl('http://' . $domainForCheck)) {
+			throw new \InvalidArgumentException(sprintf('Předaná doména "%s" není validní doéna', $domain));
+		}
+
 		$this->domain = $domain;
 	}
 
