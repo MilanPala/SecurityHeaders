@@ -74,7 +74,7 @@ final class Directive
 
 	public function addDomain(string $domain): void
 	{
-		$this->values[] = new Domain($domain);
+		$this->addToValues(new Domain($domain));
 	}
 
 
