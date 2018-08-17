@@ -1,0 +1,30 @@
+{
+	"name": "pd/security-headers",
+	"type": "library",
+	"description": "Knihovna pro snadné nastavení bezpečnostních HTTP hlaviček",
+	"authors": [
+		{
+			"name": "Milan Pála",
+			"email": "milan.pala@peckadesign.cz"
+		}
+	],
+	"require": {
+		"php": "7.1.*|7.2.*"
+	},
+	"require-dev": {
+		"nette/tester": "2.0.*",
+		"pd/coding-standard": "1.13.*",
+		"phpstan/phpstan": "0.10.*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Pd\\SecurityHeaders\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"PdTests\\SecurityHeaders\\Headers\\": "tests"
+		}
+	}
+
+}
