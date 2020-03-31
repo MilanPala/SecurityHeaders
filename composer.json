@@ -9,12 +9,12 @@
 		}
 	],
 	"require": {
-		"php": "7.1.*|7.2.*"
+		"php": "^7.1"
 	},
 	"require-dev": {
-		"nette/tester": "2.0.*",
-		"pd/coding-standard": "1.13.*",
-		"phpstan/phpstan": "0.10.*"
+		"nette/tester": "~2.3.2",
+		"pd/coding-standard": "1.21.*",
+		"phpstan/phpstan": "0.12.18"
 	},
 	"autoload": {
 		"psr-4": {
