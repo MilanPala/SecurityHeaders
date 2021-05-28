@@ -6,44 +6,23 @@ final class Directive
 {
 
 	/**
-	 * @var array|IValue[]
+	 * @var IValue[]
 	 */
-	private $values = [];
+	private array $values = [];
 
-	/**
-	 * @var bool
-	 */
-	private $hasNone = FALSE;
+	private bool $hasNone = FALSE;
 
-	/**
-	 * @var bool
-	 */
-	private $hasSelf = FALSE;
+	private bool $hasSelf = FALSE;
 
-	/**
-	 * @var bool
-	 */
-	private $hasWildcard = FALSE;
+	private bool $hasWildcard = FALSE;
 
-	/**
-	 * @var bool
-	 */
-	private $hasData = FALSE;
+	private bool $hasData = FALSE;
 
-	/**
-	 * @var bool
-	 */
-	private $hasUnsafeEval = FALSE;
+	private bool $hasUnsafeEval = FALSE;
 
-	/**
-	 * @var bool
-	 */
-	private $hasUnsafeInline = FALSE;
+	private bool $hasUnsafeInline = FALSE;
 
-	/**
-	 * @var bool
-	 */
-	private $hasHttps = FALSE;
+	private bool $hasHttps = FALSE;
 
 
 	public function addNonce(string $nonce): void
