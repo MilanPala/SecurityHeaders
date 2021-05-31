@@ -15,10 +15,8 @@ final class Header implements \Pd\SecurityHeaders\Headers\IHeader
 		self::NO_REFERRER_WHEN_DOWNGRADE,
 	];
 
-	/**
-	 * @var string
-	 */
-	private $value;
+
+	private string $value;
 
 
 	public function __construct(string $value)

@@ -5,10 +5,7 @@ namespace Pd\SecurityHeaders\Headers\ContentSecurityPolicy;
 final class Domain implements IValue
 {
 
-	/**
-	 * @var string
-	 */
-	private $domain;
+	private string $domain;
 
 
 	public function __construct(string $domain)

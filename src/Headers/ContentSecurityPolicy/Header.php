@@ -5,25 +5,16 @@ namespace Pd\SecurityHeaders\Headers\ContentSecurityPolicy;
 final class Header implements \Pd\SecurityHeaders\Headers\IHeader
 {
 
-	/**
-	 * @var Directive|null
-	 */
-	private $defaultSrc;
+	private ?\Pd\SecurityHeaders\Headers\ContentSecurityPolicy\Directive $defaultSrc = NULL;
 
 	/**
-	 * @var array|Directive[]
+	 * @var Directive[]
 	 */
-	private $directives = [];
+	private array $directives = [];
 
-	/**
-	 * @var bool
-	 */
-	private $blockAllMixedContent;
+	private bool $blockAllMixedContent = FALSE;
 
-	/**
-	 * @var bool
-	 */
-	private $upgradeInsecureRequests;
+	private bool $upgradeInsecureRequests = FALSE;
 
 
 	public function getName(): string
